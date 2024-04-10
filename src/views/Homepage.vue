@@ -74,15 +74,15 @@
         <!--        <div v-for="fit in fits" :key="fit" class="block">-->
         <!--          <el-image style="width: 150px; height: 150px; margin-left: 20px" :src="url" :fit="fit"/>-->
         <!--        </div>-->
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/pic1.png"
+        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/1.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/pic2.png"
+        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/2.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/pic3.png"
+        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/3.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/pic4.png"
+        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/4.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/pic5.png"
+        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/5.png"
                   fit="cover"/>
       </div>
     </el-main>
@@ -426,11 +426,10 @@ export default {
 <style scoped>
 .round-border {
   padding: 10px;
-  border: 2px dashed #dedede;
-  border-radius: 20px;
+  border-left: 1px solid #e0e0e0;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /*align-items: center;*/
 }
 
 .demo-image .block {
