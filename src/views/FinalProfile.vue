@@ -21,7 +21,7 @@
             Name｜姓名
           </div>
         </template>
-        张三
+        {{this.username}}
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
@@ -98,6 +98,7 @@ export default {
     abilityValue: Number,
     userLabel: String,
     userLabelType: String,
+    username: String
   },
   data() {
     return {

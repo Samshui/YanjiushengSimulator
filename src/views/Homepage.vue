@@ -19,8 +19,8 @@
     <el-menu-item index="4" @click="achievementDraw = true">成就达成</el-menu-item>
     <el-menu-item index="5" @click="aboutUSDialog = true">开发团队信息</el-menu-item>
   </el-menu>
-  <Profile :user-status="userStatus" :ability-value="abilityValue"
-           :healthy-value="healthyValue" :user-label="userLabel" :user-label-type="userLabelType"></Profile>
+  <Profile :user-status="userStatus" :ability-value="abilityValue" :username="username"
+           :healthy-value="healthyValue" :user-label="userLabel" :user-label-type="userLabelType" @changeName="changeName"></Profile>
   <el-progress
       :text-inside="true"
       :stroke-width="20"
@@ -103,7 +103,7 @@
         </el-icon>
       </el-divider>
       <div style="text-align: center" v-if="achievements.length > 0">
-        <el-tag type="primary" v-for="a in achievements" style="margin: 5px">{{ a }}</el-tag>
+        <el-tag :type="achievementTagsType[index%5]" v-for="(a, index) in achievements" style="margin: 5px">{{ a }}</el-tag>
       </div>
       <div v-else style="text-align: center">
         <span style="font-weight: bolder; font-family: 'Wawati SC'; font-size: larger; color: darkorange">你还没有成就哦～如果答完了题还没有成就的话，怎么不算一种"成就呢"？</span>
@@ -126,10 +126,10 @@
       {{ userResults[userResultID].content }}
     </div>
     <el-divider border-style="dashed"/>
-    <FinalProfile :user-status="userStatus" :ability-value="abilityValue"
+    <FinalProfile :user-status="userStatus" :ability-value="abilityValue" :username="username"
                   :healthy-value="healthyValue" :user-label="userLabel" :user-label-type="userLabelType"></FinalProfile>
-    <div style="text-align: center">
-      <el-tag type="primary" v-for="a in achievements" style="margin-top:30px; margin-right: 20px">{{ a }}</el-tag>
+    <div style="text-align: center; margin-top: 10px">
+      <el-tag :type="achievementTagsType[index%5]" v-for="(a, index) in achievements" style="margin-top:10px; margin-right: 10px">{{ a }}</el-tag>
     </div>
     <template #footer>
       <div class="dialog-footer">
@@ -218,6 +218,8 @@ export default {
       userLabel: '普通研究生 Lv.1',
       userLabelType: 'primary',
 
+      username: '张三（修改你的名字）',
+
       gameFlowValue: 0,
       achievementDraw: false,
 
@@ -234,6 +236,7 @@ export default {
         },
       ],
       achievements: [],
+      achievementTagsType: ['primary', 'success', 'info', 'warning', 'danger'],
       fits: ['cover', 'cover', 'cover', 'cover', 'cover'],
       finalTitle: '疯狂的MAX',
       finalContent: 'MBTI 最初是由两名美国人——凯瑟琳·库克·布里格斯和她的女儿伊莎贝尔·布里格斯·迈尔斯所建构，于1944年发表。这项指标的理论基础来自瑞士精神科医师兼精神分析师卡尔·荣格的著作《心理类型》。迈尔斯认为荣格的著作对大众而言过于复杂难懂，于是尝试将荣格认知功能整理得更加易于理解。布里格斯自1917年开始进行有关人格的研究。在遇见她未来的女婿时，她观察到他的个性与其他家庭成员有明显的差异。其后她开始从事人物传记的研读，并开发了一种类型学，其中她提出了四种气质：“沉思型”（英语：meditative）、“自发型”（英语：spontaneous）、“决策型”（英语：executive）和“社交型”（英语：social）。',
@@ -321,6 +324,9 @@ export default {
     },
     addUserChoices(choices) {
       this.userChoices = this.userChoices.concat(choices)
+    },
+    changeName(name) {
+      this.username = name
     }
   },
   watch: {

@@ -21,7 +21,7 @@
             Name｜姓名
           </div>
         </template>
-        张三
+        <el-input size="small" v-model="myName"/>
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
@@ -114,18 +114,30 @@ export default {
   name: "Profile",
   computed: {},
   components: {Apple, Opportunity, OfficeBuilding, Tickets, Location, Iphone, User},
+  emits: ['changeName'],
   props: {
     userStatus: Number,
     healthyValue: Number,
     abilityValue: Number,
     userLabel: String,
-    userLabelType: String
+    userLabelType: String,
+    username: String
   },
   data() {
     return {
+      myName: ''
     }
   },
   methods: {
+  },
+  created() {
+    this.myName = this.username
+  },
+  watch: {
+    myName(val) {
+      console.log("name", val)
+      this.$emit('changeName', val)
+    }
   }
 }
 </script>
