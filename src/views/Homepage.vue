@@ -71,18 +71,15 @@
         </div>
       </div>
       <div class="demo-image">
-        <!--        <div v-for="fit in fits" :key="fit" class="block">-->
-        <!--          <el-image style="width: 150px; height: 150px; margin-left: 20px" :src="url" :fit="fit"/>-->
-        <!--        </div>-->
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/1.png"
+        <img style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="@/assets/1.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/2.png"
+        <img style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="@/assets/2.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/3.png"
+        <img style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="@/assets/3.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/4.png"
+        <img style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="@/assets/4.png"
                   fit="cover"/>
-        <el-image style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="src/assets/5.png"
+        <img style="width: 150px; height: 150px; margin-left: 20px; border-radius: 20px" src="@/assets/5.png"
                   fit="cover"/>
       </div>
     </el-main>
